@@ -1,0 +1,18 @@
+name: Pipeline-teste-minikube
+on:
+    workflow_call:
+    push:
+        branches:
+            - main
+            - dev
+    pull_request:
+        branches:
+            - main
+            - dev
+jobs: 
+    chamar-templates:
+        uses: mateus0507/pipeline-templates/.github/workflows/exec-templates.yaml@main
+        secrets: inherit
+        with:
+            STACK_TYPE: "next" #escolha entre "next" ou "react"
+            version: "20"
