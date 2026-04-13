@@ -1,19 +1,23 @@
-name: Pipeline-teste-minikube
+name: CI-CD Next/React App Pipeline
 on:
-    workflow_call:
-    push:
-        branches:
-            - main
-            - dev
-    pull_request:
-        branches:
-            - main
-            - dev
-jobs: 
-    chamar-templates:
-        uses: mateus0507/pipeline-templates/.github/workflows/exec-templates.yaml@main
-        secrets: inherit
-        with:
-            STACK_TYPE: "next" #escolha entre "next" ou "react"
-            version: "20"
-#teste
+  workflow_call:
+  push:
+    branches:
+      - main
+      - dev
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+      - dev
+jobs:
+  chamar-templates:
+    uses: mateus0507/pipeline-templates/.github/workflows/exec-templates.yaml@main
+    secrets: inherit
+    with:
+      STACK_TYPE: "next" #Escolha entre "next" ou "react"
+      version: "20"
+      #teste
+      #teste2
+      #error
+      
